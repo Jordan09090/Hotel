@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Netflix on Hotel Infotainment</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #333;
+      color: white;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em;
+      background-color: #E5D9CB;
+      color: black;
+    }
+
+    #time {
+      background-color: #d3d3d3;
+      padding: 0.5em;
+      border-radius: 5px;
+    }
+
+    #hotel-logo {
+      height: 50px; /* Adjust as needed */
+    }
+
+    #netflix-button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      color: white;
+      background-color: #E50914;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <script>
+    function updateClock() {
+      var now = new Date();
+      var timeElement = document.getElementById('time');
+      timeElement.textContent = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock(); // Initialize clock immediately
+  </script>
+</head>
+<body>
+  <header>
+    <span id="time"></span>
+    <img id="hotel-logo" src="Logo2.PNG" alt="Palais Lumière">
+  </header>
+  <main>
+    <button id="netflix-button" onclick="window.open('https://www.netflix.com', '_blank')">Watch Netflix</button>
+  </main>
+</body>
+</html>

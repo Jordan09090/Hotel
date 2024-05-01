@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>In Room Dining - Palais Lumière</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #fff5ee;
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1em;
+      background-color: #E5D9CB;
+      position: relative;
+    }
+    #time-room {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+    #time, #room {
+      background-color: #d3d3d3;
+      padding: 0.5em;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #hotel-logo {
+      max-height: 50px;
+      margin-top: 0.5em;
+    }
+    #home-button, #view-order-button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+      position: absolute;
+      top: 20px;
+    }
+    #home-button {
+      right: 200px;
+    }
+    #view-order-button {
+      right: 20px;
+    }
+    .title-image {
+      margin-top: 20px;
+    }
+    main {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+      padding: 20px;
+      justify-content: center;
+      align-items: center;
+      height: calc(100% - 140px);
+      box-sizing: border-box;
+    }
+    .menu-button {
+      padding: 10px;
+      font-size: 1.5rem;
+      text-align: center;
+      background: #6e7b8b;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+    }
+    .menu-button:hover {
+      background-color: #5a6772;
+    }
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr 1fr;
+      }
+      #home-button {
+        right: 100px;
+      }
+    }
+    @media (max-width: 480px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      #home-button, #view-order-button {
+        position: static;
+        margin: 10px;
+        width: calc(50% - 20px);
+      }
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      #time-room {
+        position: static;
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div id="time-room">
+      <span id="time">6:44 AM</span>
+      <span id="room">Room: 2083</span>
+    </div>
+    <img id="hotel-logo" src="Logo2.PNG" alt="Palais Lumière">
+    <img src="IRDMenuImage.PNG" class="title-image" alt="In Room Dining">
+    <button id="home-button" onclick="location.href='Homepage.html'">Home</button>
+    <button id="view-order-button" onclick="location.href='Cart.html'">View Order: 0</button>
+  </header>
+  <main>
+    <a href="Breakfast.html" class="menu-button">Breakfast</a>
+    <a href="Lunch.html" class="menu-button">Lunch</a>
+    <a href="Dinner.html" class="menu-button">Dinner</a>
+    <a href="Dessert.html" class="menu-button">Desserts</a>
+    <a href="Children.html" class="menu-button">Children</a>
+    <a href="Beverages.html" class="menu-button">Beverages</a>
+  </main>
+  <script>
+
+  // Function to update the time
+  function updateClock() {
+    var now = new Date();
+    var hours = now.getHours() % 12 || 12; // Convert 0 to 12 for 12-hour format
+    var minutes = now.getMinutes();
+    var amPm = now.getHours() >= 12 ? 'PM' : 'AM';
+    var minutesStr = minutes < 10 ? '0' + minutes : minutes;
+    var timeStr = `${hours}:${minutesStr} ${amPm}`;
+    document.getElementById('time').textContent = timeStr;
+  }
+  // Update the time every minute
+  setInterval(updateClock, 60000);
+  updateClock();
+
+  // Add to Cart functionality
+  document.querySelectorAll('.order-button').forEach(button => {
+    button.addEventListener('click', function() {
+      const itemId = this.getAttribute('data-id');
+      let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+      cartItems[itemId] = (cartItems[itemId] || 0) + 1;
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+      // Show cart message
+      const cartMessage = document.getElementById('cart-message');
+      cartMessage.style.display = 'block';
+      setTimeout(() => { cartMessage.style.display = 'none'; }, 3600);
+
+      // Update View Order count
+      updateViewOrderCount();
+    });
+  });
+
+  // Function to update View Order count from localStorage
+  function updateViewOrderCount() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+    const itemCount = Object.keys(cartItems).reduce((count, key) => count + cartItems[key], 0);
+    document.getElementById('view-order-button').textContent = `View Order: ${itemCount}`;
+  }
+
+  // Update View Order count when the page loads
+  document.addEventListener('DOMContentLoaded', updateViewOrderCount);
+
+  </script>
+</body>
+</html>

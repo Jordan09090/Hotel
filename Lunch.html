@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lunch Menu - Palais Lumière</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #fff5ee; /* Soft peach background */
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1em 2em;
+      background-color: #E5D9CB;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%; /* Spread out on entire width of header */
+    }
+    #time-room {
+      display: flex;
+      align-items: center;
+    }
+    #time, #room {
+      background-color: #d3d3d3;
+      padding: 0.5em;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #hotel-logo {
+      max-height: 70px; /* Adjust as needed */
+      width: auto; /* Maintain aspect ratio */
+    }
+    .title-image {
+      max-height: 100px; /* Adjust as needed */
+      width: auto; /* Maintain aspect ratio */
+      margin-top: 0.5em;
+    }
+    .header-button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+      margin-right: 10px; /* Space between buttons */
+    }
+    main {
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .menu-item {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1em;
+      margin: 1em 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 800px; /* Adjust as needed */
+    }
+    .item-image {
+      margin-right: 1em;
+      border-radius: 10px;
+      overflow: hidden; /* Add this to make sure the image follows the border-radius */
+      display: flex; /* Ensures the image centers in the div */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      width: 100px; /* Adjust as needed */
+      height: 100px; /* Adjust as needed */
+    }
+    .item-image img {
+      max-width: 100%; /* Ensures the image does not exceed its container */
+      max-height: 100%; /* Ensures the image does not exceed its container */
+      border-radius: 10px; /* Round the corners of the image */
+    }
+    .item-text {
+      flex-grow: 1;
+    }
+    .item-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+    .item-detail {
+      margin-bottom: 1em;
+    }
+    .item-price {
+      font-size: 1.2rem;
+      color: #555;
+      margin-right: 1em;
+    }
+    .order-button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #d3d3d3;
+    }
+    #cart-message {
+      display: none; /* Hidden by default */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      background-color: rgb(107, 78, 16);
+      color: white;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div id="time-room">
+        <span id="time">Loading time...</span>
+        <span id="room">Room: 2083</span>
+      </div>
+      <img id="hotel-logo" src="Logo2.PNG" alt="Palais Lumière Logo">
+      <div>
+        <button id="back-button" class="header-button" onclick="location.href='InRoomDiningMenu.html'">Back</button>
+        <button id="view-order-button" class="header-button" onclick="location.href='Cart.html'">View Order</button>
+      </div>
+    </div>
+    <img src="Lunch.PNG" class="title-image" alt="Breakfast">
+  </header>
+
+
+
+
+
+
+
+
+  <main>
+    <!-- Menu items -->
+ <!-- Sandwiches -->
+
+<!-- Club sandwich -->
+<div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Club sandwich.png" alt="Club sandwich" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Club sandwich</div>
+      <div class="item-detail">Layers of turkey, bacon, lettuce, and tomato in toasted bread.</div>
+    </div>
+    <span class="item-price">$38</span>
+    <button class="order-button" data-id="2001">Order</button>
+  </div>
+  
+  <!-- Grilled chicken wrap -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Grilled chicken wrap.png" alt="Grilled chicken wrap" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Grilled chicken wrap</div>
+      <div class="item-detail">Grilled chicken and veggies wrapped in a soft tortilla.</div>
+    </div>
+    <span class="item-price">$28</span>
+    <button class="order-button" data-id="2002">Order</button>
+  </div>
+  
+  <!-- Classic Beef Burger -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Classic Beef Burger.png" alt="Classic Beef Burger" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Classic Beef Burger - Jordan's Way</div>
+      <div class="item-detail">Fresh, tosted bread buns with high quality beef toped with cheese.</div>
+    </div>
+    <span class="item-price">$30</span>
+    <button class="order-button" data-id="2003">Order</button>
+  </div>
+  
+  <!-- Veggie burger -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Veggie burger.png" alt="Veggie burger" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Veggie burger</div>
+      <div class="item-detail">A delicious vegetarian patty with lettuce and tomato.</div>
+    </div>
+    <span class="item-price">$28</span>
+    <button class="order-button" data-id="2004">Order</button>
+  </div>
+  
+  <!-- Sides Of Chips -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Side of chips.png" alt="Side Chips" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Add a side of chips!</div>
+      <div class="item-detail">Add a delicious side of chips to your order</div>
+    </div>
+    <span class="item-price">$18</span>
+    <button class="order-button" data-id="2005">Order</button>
+  </div>
+
+ <!-- Salads -->
+
+  <!-- Caesar salad with grilled chicken -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Caesar salad with grilled chicken.png" alt="Caesar salad with grilled chicken" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Caesar salad with grilled chicken</div>
+      <div class="item-detail">Crisp romaine, grilled chicken, and Caesar dressing.</div>
+    </div>
+    <span class="item-price">$30
+    </span>
+    <button class="order-button" data-id="2011">Order</button>
+  </div>
+  
+  <!-- Caprese salad -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Caprese salad.png" alt="Caprese salad" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Caprese salad</div>
+      <div class="item-detail">Fresh mozzarella, tomatoes, and basil drizzled with balsamic.</div>
+    </div>
+    <span class="item-price">$40</span>
+    <button class="order-button" data-id="2012">Order</button>
+  </div>
+  
+  <!-- Greek salad -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Greek Salad.png" alt="Greek salad" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Greek salad</div>
+      <div class="item-detail">Cucumbers, tomatoes, feta cheese, olives, and Greek dressing.</div>
+    </div>
+    <span class="item-price">$26</span>
+    <button class="order-button" data-id="2013">Order</button>
+  </div>
+  
+  <!-- Quinoa and kale salad -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Quinoa and kale salad.png" alt="Quinoa and kale salad" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Quinoa and kale salad</div>
+      <div class="item-detail">Nutritious quinoa, kale, and assorted veggies.</div>
+    </div>
+    <span class="item-price">$28</span>
+    <button class="order-button" data-id="2014">Order</button>
+  </div>
+  
+  <!-- Main Courses -->
+
+
+  <!-- Grilled salmon with lemon butter sauce -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Grilled salmon.png" alt="Grilled salmon with lemon butter sauce" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Grilled salmon with lemon butter sauce</div>
+      <div class="item-detail">Grilled Norwegian salmon fillet with a tangy sauce.</div>
+    </div>
+    <span class="item-price">$62</span>
+    <button class="order-button" data-id="2021">Order</button>
+  </div>
+  
+  <!-- Chicken Alfredo pasta -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Chicken Alfredo pasta.png" alt="Chicken Alfredo pasta" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Chicken Alfredo pasta</div>
+      <div class="item-detail">Grilled chicken in creamy Alfredo sauce with pasta.</div>
+    </div>
+    <span class="item-price">$53</span>
+    <button class="order-button" data-id="2022">Order</button>
+  </div>
+  
+  <!-- Beef stir-fry with vegetables -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Beef stir-fry with vegetables.png" alt="Beef stir-fry with vegetables" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Beef stir-fry with vegetables</div>
+      <div class="item-detail">A5-Wagu beef strips with a premium veggie selection in a rich savory sauce.</div>
+    </div>
+    <span class="item-price">$74</span>
+    <button class="order-button" data-id="2023">Order</button>
+  </div>
+  
+  <!-- Vegetarian lasagna -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Vegetarian lasagna.png" alt="Vegetarian lasagna" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Vegetarian lasagna</div>
+      <div class="item-detail">Layers of pasta, veggies, and cheese baked to perfection.</div>
+    </div>
+    <span class="item-price">$37</span>
+    <button class="order-button" data-id="2024">Order</button>
+  </div>
+
+    <!-- Mac & Cheese -->
+    <div class="menu-item">
+        <div class="item-image">
+          <img src="Food Photos/Lunch/Mac & Cheese.png" alt="Mac & Cheese" />
+        </div>
+        <div class="item-text">
+          <div class="item-name">Mac & Cheese</div>
+          <div class="item-detail">Fresh Mac & Cheese - served with Parmigiano.</div>
+        </div>
+        <span class="item-price">$28</span>
+        <button class="order-button" data-id="2025">Order</button>
+      </div>
+    
+    <!-- Side of Rice -->
+    <div class="menu-item">
+        <div class="item-image">
+          <img src="Food Photos/Lunch/Steamed Rice.png" alt="Side of Rice" />
+        </div>
+        <div class="item-text">
+          <div class="item-name">Fresh Steamed Rice</div>
+          <div class="item-detail">Side of Steamed Rice</div>
+        </div>
+        <span class="item-price">$3</span>
+        <button class="order-button" data-id="2026">Order</button>
+      </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Add more items similarly -->
+  </main>
+  <div id="cart-message">Item added to cart!</div>
+  <script>
+ // Function to update the time
+ function updateClock() {
+    var now = new Date();
+    var hours = now.getHours() % 12 || 12; // Convert 0 to 12 for 12-hour format
+    var minutes = now.getMinutes();
+    var amPm = now.getHours() >= 12 ? 'PM' : 'AM';
+    var minutesStr = minutes < 10 ? '0' + minutes : minutes;
+    var timeStr = `${hours}:${minutesStr} ${amPm}`;
+    document.getElementById('time').textContent = timeStr;
+  }
+  // Update the time every minute
+  setInterval(updateClock, 60000);
+  updateClock();
+
+  // Add to Cart functionality
+  document.querySelectorAll('.order-button').forEach(button => {
+    button.addEventListener('click', function() {
+      const itemId = this.getAttribute('data-id');
+      let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+      cartItems[itemId] = (cartItems[itemId] || 0) + 1;
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+      // Show cart message
+      const cartMessage = document.getElementById('cart-message');
+      cartMessage.style.display = 'block';
+      setTimeout(() => { cartMessage.style.display = 'none'; }, 3600);
+
+      // Update View Order count
+      updateViewOrderCount();
+    });
+  });
+
+  // Function to update View Order count from localStorage
+  function updateViewOrderCount() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+    const itemCount = Object.keys(cartItems).reduce((count, key) => count + cartItems[key], 0);
+    document.getElementById('view-order-button').textContent = `View Order: ${itemCount}`;
+  }
+
+  // Update View Order count when the page loads
+  document.addEventListener('DOMContentLoaded', updateViewOrderCount);
+
+  </script>
+</body>
+</html>

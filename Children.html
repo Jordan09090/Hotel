@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Children's Menu</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #fff5ee; /* Soft peach background */
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1em 2em;
+      background-color: #E5D9CB;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%; /* Spread out on entire width of header */
+    }
+    #time-room {
+      display: flex;
+      align-items: center;
+    }
+    #time, #room {
+      background-color: #d3d3d3;
+      padding: 0.5em;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #hotel-logo {
+      max-height: 70px; /* Adjust as needed */
+      width: auto; /* Maintain aspect ratio */
+    }
+    .title-image {
+      max-height: 100px; /* Adjust as needed */
+      width: auto; /* Maintain aspect ratio */
+      margin-top: 0.5em;
+    }
+    .header-button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+      margin-right: 10px; /* Space between buttons */
+    }
+    main {
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .menu-item {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1em;
+      margin: 1em 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 800px; /* Adjust as needed */
+    }
+    .item-image {
+      margin-right: 1em;
+      border-radius: 10px;
+      overflow: hidden; /* Add this to make sure the image follows the border-radius */
+      display: flex; /* Ensures the image centers in the div */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      width: 100px; /* Adjust as needed */
+      height: 100px; /* Adjust as needed */
+    }
+    .item-image img {
+      max-width: 100%; /* Ensures the image does not exceed its container */
+      max-height: 100%; /* Ensures the image does not exceed its container */
+      border-radius: 10px; /* Round the corners of the image */
+    }
+    .item-text {
+      flex-grow: 1;
+    }
+    .item-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+    .item-detail {
+      margin-bottom: 1em;
+    }
+    .item-price {
+      font-size: 1.2rem;
+      color: #555;
+      margin-right: 1em;
+    }
+    .order-button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #d3d3d3;
+    }
+    #cart-message {
+      display: none; /* Hidden by default */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      background-color: rgb(107, 78, 16);
+      color: white;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div id="time-room">
+        <span id="time">Loading time...</span>
+        <span id="room">Room: 2083</span>
+      </div>
+      <img id="hotel-logo" src="Logo2.PNG" alt="Palais Lumière Logo">
+      <div>
+        <button id="back-button" class="header-button" onclick="location.href='InRoomDiningMenu.html'">Back</button>
+        <button id="view-order-button" class="header-button" onclick="location.href='Cart.html'">View Order</button>
+      </div>
+    </div>
+    <img src="Children.PNG" class="title-image" alt="Children">
+  </header>
+
+
+
+
+
+  <main>
+    <!-- Menu items -->
+
+<!-- Chicken tenders with fries -->
+<div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Children/Chicken tenders with fries.png" alt="Chicken tenders with fries" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Chicken tenders with fries</div>
+      <div class="item-detail">Crispy chicken tenders served with fries</div>
+    </div>
+    <span class="item-price">$16</span>
+    <button class="order-button" data-id="5001">Order</button>
+  </div>
+  
+  <!-- Mini cheeseburger with fries -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Children/Mini cheeseburger with fries.png" alt="Mini cheeseburger with fries" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Mini cheeseburger with fries</div>
+      <div class="item-detail">Mini beef patty, cheese, and fries</div>
+    </div>
+    <span class="item-price">$21</span>
+    <button class="order-button" data-id="5002">Order</button>
+  </div>
+  
+  <!-- Macaroni and cheese -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Children/Small Macaroni and cheese.png" alt="Macaroni and cheese" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Macaroni and cheese</div>
+      <div class="item-detail">Creamy mac and cheese</div>
+    </div>
+    <span class="item-price">$12</span>
+    <button class="order-button" data-id="5003">Order</button>
+  </div>
+  
+  <!-- Grilled cheese sandwich -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Children/Grilled cheese sandwich.png" alt="Grilled cheese sandwich" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Grilled cheese sandwich</div>
+      <div class="item-detail">Grilled cheese on buttered bread</div>
+    </div>
+    <span class="item-price">$8</span>
+    <button class="order-button" data-id="5004">Order</button>
+  </div>
+  
+  <!-- Fruit cup -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Children/Fruit cup.png" alt="Fruit cup" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Fruit cup</div>
+      <div class="item-detail">Fresh and colourful fruit cup</div>
+    </div>
+    <span class="item-price">$6</span>
+    <button class="order-button" data-id="5005">Order</button>
+  </div>
+
+  <!-- Sides Of Chips -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Side of chips.png" alt="Side Chips" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Add a side of chips!</div>
+      <div class="item-detail">Add a delicious side of chips to your order</div>
+    </div>
+    <span class="item-price">$18</span>
+    <button class="order-button" data-id="2005">Order</button>
+
+
+
+
+
+    <!-- Add more items similarly -->
+  </main>
+  <div id="cart-message">Item added to cart!</div>
+  <script>
+    // Function to update the time
+    function updateClock() {
+    var now = new Date();
+    var hours = now.getHours() % 12 || 12; // Convert 0 to 12 for 12-hour format
+    var minutes = now.getMinutes();
+    var amPm = now.getHours() >= 12 ? 'PM' : 'AM';
+    var minutesStr = minutes < 10 ? '0' + minutes : minutes;
+    var timeStr = `${hours}:${minutesStr} ${amPm}`;
+    document.getElementById('time').textContent = timeStr;
+  }
+  // Update the time every minute
+  setInterval(updateClock, 60000);
+  updateClock();
+
+  // Add to Cart functionality
+  document.querySelectorAll('.order-button').forEach(button => {
+    button.addEventListener('click', function() {
+      const itemId = this.getAttribute('data-id');
+      let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+      cartItems[itemId] = (cartItems[itemId] || 0) + 1;
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+      // Show cart message
+      const cartMessage = document.getElementById('cart-message');
+      cartMessage.style.display = 'block';
+      setTimeout(() => { cartMessage.style.display = 'none'; }, 3600);
+
+      // Update View Order count
+      updateViewOrderCount();
+    });
+  });
+
+  // Function to update View Order count from localStorage
+  function updateViewOrderCount() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+    const itemCount = Object.keys(cartItems).reduce((count, key) => count + cartItems[key], 0);
+    document.getElementById('view-order-button').textContent = `View Order: ${itemCount}`;
+  }
+
+  // Update View Order count when the page loads
+  document.addEventListener('DOMContentLoaded', updateViewOrderCount);
+  </script>
+</body>
+</html>

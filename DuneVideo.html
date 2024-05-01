@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Player - Palais Lumière</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #1a1a1a;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em;
+      background-color: #E5D9CB;
+    }
+
+    #time-room {
+      display: flex;
+      align-items: center;
+    }
+
+    #time, #room {
+      background-color: #d3d3d3;
+      padding: 0.5em;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    #hotel-logo {
+      max-height: 70px;
+    }
+
+    .header-button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: calc(100% - 100px); /* Header height + some extra space */
+      margin-top: 50px; /* Space from header */
+    }
+
+    video {
+      width: 80%; /* Adjust as needed */
+      max-width: 800px; /* Maximum size */
+      border-radius: 10px; /* Slight rounding on corners */
+    }
+
+    .movie-details {
+      background-color: #E5D9CB;
+      margin-top: 20px; /* Space from video player */
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+      max-width: 800px; /* Aligns with the video width if you like */
+      width: 80%; /* Matches video player width */
+      margin-bottom: 40px; /* Spacing from bottom */
+    }
+
+    .movie-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #333; /* Darker text for the title */
+      margin-bottom: 15px;
+    }
+
+    .movie-description {
+      line-height: 1.6; /* More readable line spacing */
+      color: #555; /* Slightly lighter text for the description */
+      margin-bottom: 10px;
+    }
+
+    .movie-info {
+      background-color: #f8f8f8; /* Slightly off-white background for info */
+      border: 1px solid #e5e5e5; /* Light border for definition */
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .movie-info strong {
+      color: #000; /* Strong color for important info bits */
+      font-weight: normal; /* Avoid bolding inside the strong tag */
+      display: block; /* Make them stand on their own line */
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div id="time-room">
+      <span id="time">10:47pm</span>
+      <span id="room">Room: 2083</span>
+    </div>
+    <img id="hotel-logo" src="Logo2.PNG" alt="Palais Lumière Logo">
+    <button class="header-button" onclick="location.href='MovieSelection.html'">back</button>
+  </header>
+  <main>
+    <video controls>
+      <source src="Introvideo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="movie-details">
+      <div class="movie-title">Anyone But You</div>
+      <p class="movie-description">Despite having an amazing first date, Bea and Ben's initial attraction quickly turns sour. When they unexpectedly find themselves at a destination wedding in Australia, the pair pretend to be the perfect couple to keep up appearances.</p>
+      <div class="movie-info"><strong>Rating:</strong> MA 15+</div>
+      <div class="movie-info"><strong>Release Date:</strong> January 1, 2024</div>
+      <div class="movie-info"><strong>Subtitles:</strong> Available</div>
+    </div>
+  </main>
+
+  <script>
+    // JavaScript for updating the time
+    function updateTime() {
+      const now = new Date();
+      let hours = now.getHours() % 12;
+      hours = hours ? hours : 12; // the hour '0' should be '12'
+      const minutes = now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes();
+      const amPm = now.getHours() >= 12 ? 'PM' : 'AM';
+      document.getElementById('time').textContent = hours + ':' + minutes + ' ' + amPm;
+    }
+
+    setInterval(updateTime, 60000);
+    updateTime(); // Initialize the time display
+  </script>
+</body>
+</html>

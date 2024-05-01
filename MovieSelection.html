@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movies & TV Shows - Palais Lumière</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff5ee; /* Soft peach background */
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em;
+      background-color: #E5D9CB;
+    }
+
+    #time-room {
+      display: flex;
+      align-items: center;
+    }
+
+    #time, #room {
+      background-color: #d3d3d3;
+      padding: 0.5em;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    #hotel-logo {
+      max-height: 70px; /* Adjust as needed */
+    }
+
+    .header-button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+    }
+
+    main {
+      padding: 2em;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates a responsive grid */
+      grid-gap: 20px;
+      justify-content: center;
+    }
+
+    .movie-card {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .movie-image {
+      width: 100%;
+      display: block;
+    }
+
+    .movie-info {
+      padding: 1em;
+      text-align: center;
+    }
+
+    .movie-title {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .play-button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      margin-top: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #d3d3d3;
+      width: 80%;
+    }
+
+  </style>
+</head>
+
+<body>
+    <header>
+        <div id="time-room">
+          <span id="time"></span> <!-- Removed the hardcoded time -->
+          <span id="room">Room: 2083</span>
+        </div>
+        <img id="hotel-logo" src="Logo2.PNG" alt="Palais Lumière Logo">
+        <button class="header-button" onclick="location.href='Homepage.html'">Home</button>
+      </header>
+  <main>
+    <!-- Movie Card Template -->
+    <div class="movie-card">
+      <img class="movie-image" src="AnyoneButYouMOVIEPOSTER.PNG" alt="Movie Title">
+      <div class="movie-info">
+        <div class="movie-title">Anyone But You</div>
+        <p>Despite having an amazing first date, Bea and Ben's initial attraction quickly turns sour. When they unexpectedly find themselves at a destination wedding in Australia, the pair pretend to be the perfect couple to keep up appearances.</p>
+        <button class="play-button" onclick="window.location.href='movie-details.html';">Play Now</button>
+      </div>
+    </div>
+
+    <div class="movie-card">
+        <img class="movie-image" src="Dune.PNG" alt="Movie Title">
+        <div class="movie-info">
+          <div class="movie-title">Dune - Part One</div>
+          <p>Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the universe, he must prevent a terrible future only he can foresee.</p>
+          <button class="play-button" onclick="window.location.href='DuneVideo.html';">Play Now</button>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <img class="movie-image" src="Cars.PNG" alt="Movie Title">
+        <div class="movie-info">
+          <div class="movie-title">Cars</div>
+          <p>After the race at the Piston Cup Championship ends in a three-way tie-breaker, a rookie Lightning McQueen is desperate to make it to the winning position and take over the veteran Strip Weathers.</p>
+          <button class="play-button" onclick="window.location.href='movie-details.html';">Play Now</button>
+        </div>
+      </div>
+  
+      <div class="movie-card">
+        <img class="movie-image" src="Wonka.PNG" alt="Movie Title">
+        <div class="movie-info">
+          <div class="movie-title">Wonka</div>Armed with nothing but a hatful of dreams, young chocolatier Willy Wonka manages to change the world, one delectable bite at a time.</p>
+          <button class="play-button" onclick="window.location.href='movie-details.html';">Play Now</button>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <img class="movie-image" src="Wonka.PNG" alt="Movie Title">
+        <div class="movie-info">
+          <div class="movie-title">Wonka</div>Armed with nothing but a hatful of dreams, young chocolatier Willy Wonka manages to change the world, one delectable bite at a time.</p>
+          <button class="play-button" onclick="window.location.href='movie-details.html';">Play Now</button>
+        </div>
+
+      </div>
+        <div class="movie-card">
+        <img class="movie-image" src="Wonka.PNG" alt="Movie Title">
+        <div class="movie-info">
+          <div class="movie-title">Wonka</div>Armed with nothing but a hatful of dreams, young chocolatier Willy Wonka manages to change the world, one delectable bite at a time.</p>
+          <button class="play-button" onclick="window.location.href='movie-details.html';">Play Now</button>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <img class="movie-image" src="Wonka.PNG" alt="Movie Title">
+        <div class="movie-info">
+          <div class="movie-title">Wonka</div>Armed with nothing but a hatful of dreams, young chocolatier Willy Wonka manages to change the world, one delectable bite at a time.</p>
+          <button class="play-button" onclick="window.location.href='movie-details.html';">Play Now</button>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <img class="movie-image" src="Wonka.PNG" alt="Movie Title">
+        <div class="movie-info">
+          <div class="movie-title">Wonka</div>Armed with nothing but a hatful of dreams, young chocolatier Willy Wonka manages to change the world, one delectable bite at a time.</p>
+          <button class="play-button" onclick="window.location.href='movie-details.html';">Play Now</button>
+        </div>
+      </div>
+  
+  
+  
+  
+    <!-- Repeat this template for each movie you want to add -->
+  </main>
+</body>
+
+<script>
+    function updateTime() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = ('0' + now.getMinutes()).slice(-2);
+      const amPm = hours >= 12 ? 'pm' : 'am';
+  
+      hours = hours % 12;
+      hours = hours ? hours : 12; // the hour '0' should be '12'
+      const formattedTime = `${hours}:${minutes} ${amPm}`;
+      document.getElementById('time').textContent = formattedTime;
+    }
+  
+    // Update the time every minute
+    setInterval(updateTime, 60000);
+  
+    // Initialize the time displa
+    updateTime();
+  </script>
+  
+  
+</html>

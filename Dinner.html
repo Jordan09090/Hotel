@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dinner Menu Menu - Palais Lumière</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #fff5ee; /* Soft peach background */
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1em 2em;
+      background-color: #E5D9CB;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%; /* Spread out on entire width of header */
+    }
+    #time-room {
+      display: flex;
+      align-items: center;
+    }
+    #time, #room {
+      background-color: #d3d3d3;
+      padding: 0.5em;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #hotel-logo {
+      max-height: 70px; /* Adjust as needed */
+      width: auto; /* Maintain aspect ratio */
+    }
+    .title-image {
+      max-height: 100px; /* Adjust as needed */
+      width: auto; /* Maintain aspect ratio */
+      margin-top: 0.5em;
+    }
+    .header-button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+      margin-right: 10px; /* Space between buttons */
+    }
+    main {
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .menu-item {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1em;
+      margin: 1em 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 800px; /* Adjust as needed */
+    }
+    .item-image {
+      margin-right: 1em;
+      border-radius: 10px;
+      overflow: hidden; /* Add this to make sure the image follows the border-radius */
+      display: flex; /* Ensures the image centers in the div */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      width: 100px; /* Adjust as needed */
+      height: 100px; /* Adjust as needed */
+    }
+    .item-image img {
+      max-width: 100%; /* Ensures the image does not exceed its container */
+      max-height: 100%; /* Ensures the image does not exceed its container */
+      border-radius: 10px; /* Round the corners of the image */
+    }
+    .item-text {
+      flex-grow: 1;
+    }
+    .item-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+    .item-detail {
+      margin-bottom: 1em;
+    }
+    .item-price {
+      font-size: 1.2rem;
+      color: #555;
+      margin-right: 1em;
+    }
+    .order-button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #d3d3d3;
+    }
+    #cart-message {
+      display: none; /* Hidden by default */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      background-color: rgb(107, 78, 16);
+      color: white;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div id="time-room">
+        <span id="time">Loading time...</span>
+        <span id="room">Room: 2083</span>
+      </div>
+      <img id="hotel-logo" src="Logo2.PNG" alt="Palais Lumière Logo">
+      <div>
+        <button id="back-button" class="header-button" onclick="location.href='InRoomDiningMenu.html'">Back</button>
+        <button id="view-order-button" class="header-button" onclick="location.href='Cart.html'">View Order</button>
+      </div>
+    </div>
+    <img src="Dinner.PNG" class="title-image" alt="Breakfast">
+  </header>
+
+
+
+
+
+  <main>
+    <!-- Menu items -->
+
+<!-- Garlic bread -->
+<div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Dinner/Garlic bread.png" alt="Garlic bread" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Garlic bread</div>
+      <div class="item-detail">8 toasted bread with garlic butter</div>
+    </div>
+    <span class="item-price">$12</span>
+    <button class="order-button" data-id="3001">Order</button>
+  </div>
+  
+  <!-- Shrimp cocktail -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Dinner/Shrimp cocktail.png" alt="Shrimp cocktail" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Shrimp cocktail</div>
+      <div class="item-detail">Succulent shrimp served with cocktail sauce</div>
+    </div>
+    <span class="item-price">$24</span>
+    <button class="order-button" data-id="3002">Order</button>
+  </div>
+  
+  <!-- Bruschetta -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Dinner/Bruschetta.png" alt="Bruschetta" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Bruschetta</div>
+      <div class="item-detail">Toasted bread topped with fresh tomato and basil</div>
+    </div>
+    <span class="item-price">$15</span>
+    <button class="order-button" data-id="3003">Order</button>
+  </div>
+  
+  <!-- Stuffed mushrooms -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Dinner/Stuffed mushrooms.png" alt="Stuffed mushrooms" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Stuffed mushrooms</div>
+      <div class="item-detail">Mushrooms filled with savory stuffing</div>
+    </div>
+    <span class="item-price">$23</span>
+    <button class="order-button" data-id="3004">Order</button>
+  </div>
+  
+  <!-- Soup of the day -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Dinner/Soup of the day.png" alt="Soup of the day" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Soup of the day</div>
+      <div class="item-detail">Chef's special soup</div>
+    </div>
+    <span class="item-price">$24</span>
+    <button class="order-button" data-id="3005">Order</button>
+  </div>
+  
+  <!-- Grilled ribeye steak -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Dinner/Grilled ribeye steak.png" alt="Grilled ribeye steak" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Grilled ribeye steak</div>
+      <div class="item-detail">Juicy A5-Wagu ribeye steak grilled to your liking</div>
+    </div>
+    <span class="item-price">$189</span>
+    <button class="order-button" data-id="3011">Order</button>
+  </div>
+  
+  <!-- Pan-seared sea bass -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Dinner/Pan-seared sea bass.png" alt="Pan-seared sea bass" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Pan-seared sea bass</div>
+      <div class="item-detail">Delicate sea bass fillet pan-seared to perfection</div>
+    </div>
+    <span class="item-price">$80</span>
+    <button class="order-button" data-id="3012">Order</button>
+  </div>
+  
+  <!-- Roast chicken with rosemary -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Dinner/Roast chicken with rosemary.png" alt="Roast chicken with rosemary" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Roast chicken with rosemary</div>
+      <div class="item-detail">Tender roast chicken with aromatic rosemary</div>
+    </div>
+    <span class="item-price">$78</span>
+    <button class="order-button" data-id="3013">Order</button>
+  </div>
+  
+  <!-- Eggplant Parmesan -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Dinner/Eggplant Parmesan.png" alt="Eggplant Parmesan" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Eggplant Parmesan</div>
+      <div class="item-detail">Layers of eggplant and Parmesan cheese baked until golden</div>
+    </div>
+    <span class="item-price">$25</span>
+    <button class="order-button" data-id="3014">Order</button>
+  </div>
+
+  <!-- Sides Of Chips -->
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Lunch/Side of chips.png" alt="Side Chips" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Add a side of chips!</div>
+      <div class="item-detail">Add a delicious side of chips to your order</div>
+    </div>
+    <span class="item-price">$18</span>
+    <button class="order-button" data-id="2005">Order</button>
+  </div>
+
+  <div class="menu-item">
+    <div class="item-image">
+      <img src="Food Photos/Sourdough bread.png" alt="Sourdough bread" />
+    </div>
+    <div class="item-text">
+      <div class="item-name">Fresh Sourdough bread toasted</div>
+      <div class="item-detail">A Fresh Sourdough bread toasted with butter and vegimite.</div>
+    </div>
+    <span class="item-price">$3</span>
+    <button class="order-button" data-id="8081">Order</button>
+  </div>
+
+
+
+
+
+
+
+
+    <!-- Add more items similarly -->
+  </main>
+  <div id="cart-message">Item added to cart!</div>
+  <script>
+   // Function to update the time
+   function updateClock() {
+    var now = new Date();
+    var hours = now.getHours() % 12 || 12; // Convert 0 to 12 for 12-hour format
+    var minutes = now.getMinutes();
+    var amPm = now.getHours() >= 12 ? 'PM' : 'AM';
+    var minutesStr = minutes < 10 ? '0' + minutes : minutes;
+    var timeStr = `${hours}:${minutesStr} ${amPm}`;
+    document.getElementById('time').textContent = timeStr;
+  }
+  // Update the time every minute
+  setInterval(updateClock, 60000);
+  updateClock();
+
+  // Add to Cart functionality
+  document.querySelectorAll('.order-button').forEach(button => {
+    button.addEventListener('click', function() {
+      const itemId = this.getAttribute('data-id');
+      let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+      cartItems[itemId] = (cartItems[itemId] || 0) + 1;
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+      // Show cart message
+      const cartMessage = document.getElementById('cart-message');
+      cartMessage.style.display = 'block';
+      setTimeout(() => { cartMessage.style.display = 'none'; }, 3600);
+
+      // Update View Order count
+      updateViewOrderCount();
+    });
+  });
+
+  // Function to update View Order count from localStorage
+  function updateViewOrderCount() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+    const itemCount = Object.keys(cartItems).reduce((count, key) => count + cartItems[key], 0);
+    document.getElementById('view-order-button').textContent = `View Order: ${itemCount}`;
+  }
+
+  // Update View Order count when the page loads
+  document.addEventListener('DOMContentLoaded', updateViewOrderCount);
+  </script>
+</body>
+</html>

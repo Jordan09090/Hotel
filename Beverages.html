@@ -1,0 +1,508 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beverage Menu</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #fff5ee; /* Soft peach background */
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1em 2em;
+      background-color: #E5D9CB;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%; /* Spread out on entire width of header */
+    }
+    #time-room {
+      display: flex;
+      align-items: center;
+    }
+    #time, #room {
+      background-color: #d3d3d3;
+      padding: 0.5em;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #hotel-logo {
+      max-height: 70px; /* Adjust as needed */
+      width: auto; /* Maintain aspect ratio */
+    }
+    .title-image {
+      max-height: 100px; /* Adjust as needed */
+      width: auto; /* Maintain aspect ratio */
+      margin-top: 0.5em;
+    }
+    .header-button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+      margin-right: 10px; /* Space between buttons */
+    }
+    main {
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .menu-item {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1em;
+      margin: 1em 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 800px; /* Adjust as needed */
+    }
+    .item-image {
+      margin-right: 1em;
+      border-radius: 10px;
+      overflow: hidden; /* Add this to make sure the image follows the border-radius */
+      display: flex; /* Ensures the image centers in the div */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      width: 100px; /* Adjust as needed */
+      height: 100px; /* Adjust as needed */
+    }
+    .item-image img {
+      max-width: 100%; /* Ensures the image does not exceed its container */
+      max-height: 100%; /* Ensures the image does not exceed its container */
+      border-radius: 10px; /* Round the corners of the image */
+    }
+    .item-text {
+      flex-grow: 1;
+    }
+    .item-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+    .item-detail {
+      margin-bottom: 1em;
+    }
+    .item-price {
+      font-size: 1.2rem;
+      color: #555;
+      margin-right: 1em;
+    }
+    .order-button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #d3d3d3;
+    }
+    #cart-message {
+      display: none; /* Hidden by default */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      background-color: rgb(107, 78, 16);
+      color: white;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div id="time-room">
+        <span id="time">Loading time...</span>
+        <span id="room">Room: 2083</span>
+      </div>
+      <img id="hotel-logo" src="Logo2.PNG" alt="Palais Lumière Logo">
+      <div>
+        <button id="back-button" class="header-button" onclick="location.href='InRoomDiningMenu.html'">Back</button>
+        <button id="view-order-button" class="header-button" onclick="location.href='Cart.html'">View Order</button>
+      </div>
+    </div>
+    <img src="Beverages.PNG" class="title-image" alt="Children">
+  </header>
+
+
+
+
+
+  <main>
+    <!-- Menu items -->
+
+<!-- Non-Alcoholic Beverages -->
+<div class="menu-category">
+    <h3>Non-Alcoholic Beverages</h3>
+    <!-- Coca-Cola -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Coca-Cola</div>
+        <div class="item-detail">Various soda options</div>
+      </div>
+      <span class="item-price">$4</span>
+      <button class="order-button" data-id="6001">Order</button>
+    </div>
+  
+    <!-- Bottled water - Still -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Bottled water - Still</div>
+        <div class="item-detail">Refreshing bottled water</div>
+      </div>
+      <span class="item-price">$0</span>
+      <button class="order-button" data-id="6002">Order</button>
+    </div>
+  
+    <!-- Bottled water - sparkling -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Bottled water - Sparkling</div>
+        <div class="item-detail">Refreshing bottled water</div>
+      </div>
+      <span class="item-price">$8</span>
+      <button class="order-button" data-id="6003">Order</button>
+    </div>
+  
+    <!-- Fresh fruit juices - orange -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Fresh fruit juices - Orange</div>
+        <div class="item-detail">Freshly squeezed orange juice for a burst of vitamin C</div>
+      </div>
+      <span class="item-price">$3</span>
+      <button class="order-button" data-id="6004">Order</button>
+    </div>
+  
+    <!-- Fresh fruit juices - Apple -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Fresh fruit juices - Apple</div>
+        <div class="item-detail">Freshly squeezed fruit juices</div>
+      </div>
+      <span class="item-price">$3</span>
+      <button class="order-button" data-id="6005">Order</button>
+    </div>
+  
+    <!-- Da Hong Pao Iced tea -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Da Hong Pao Iced tea</div>
+        <div class="item-detail">Refreshing iced tea from the finest tea in the world</div>
+      </div>
+      <span class="item-price">$984</span>
+      <button class="order-button" data-id="6006">Order</button>
+    </div>
+  
+    <!-- Latte -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Latte</div>
+        <div class="item-detail">Fresh coffee</div>
+      </div>
+      <span class="item-price">$6</span>
+      <button class="order-button" data-id="6007">Order</button>
+    </div>
+    
+    <!-- Flat White -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Flat White</div>
+        <div class="item-detail">Fresh coffee</div>
+      </div>
+      <span class="item-price">$5</span>
+      <button class="order-button" data-id="6008">Order</button>
+    </div>
+    
+    <!-- Capitano -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Capitano</div>
+        <div class="item-detail">Fresh coffee</div>
+      </div>
+      <span class="item-price">$6</span>
+      <button class="order-button" data-id="6009">Order</button>
+    </div>
+    
+    <!-- Macchiato -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Macchiato</div>
+        <div class="item-detail">Fresh coffee</div>
+      </div>
+      <span class="item-price">$4</span>
+      <button class="order-button" data-id="6010">Order</button>
+    </div>
+    
+    <!-- Espresso -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Espresso</div>
+        <div class="item-detail">Fresh coffee</div>
+      </div>
+      <span class="item-price">$2</span>
+      <button class="order-button" data-id="6011">Order</button>
+    </div>
+    
+    <!-- Latte - Decaf -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Latte - Decaf</div>
+        <div class="item-detail">Fresh coffee</div>
+      </div>
+      <span class="item-price">$8</span>
+      <button class="order-button" data-id="6012">Order</button>
+    </div>
+    
+    <!-- Flat White - Decaf -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Flat White - Decaf</div>
+        <div class="item-detail">Fresh coffee</div>
+      </div>
+      <span class="item-price">$7</span>
+      <button class="order-button" data-id="6013">Order</button>
+    </div>
+    
+    <!-- Capitano - Decaf -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Capitano - Decaf</div>
+        <div class="item-detail">Fresh coffee</div>
+      </div>
+      <span class="item-price">$8</span>
+      <button class="order-button" data-id="6014">Order</button>
+    </div>
+    
+    <!-- Macchiato - Decaf -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Macchiato - Decaf</div>
+        <div class="item-detail">Fresh coffee</div>
+      </div>
+      <span class="item-price">$6</span>
+      <button class="order-button" data-id="6015">Order</button>
+    </div>
+    
+    <!-- Espresso - Decaf -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Espresso - Decaf</div>
+        <div class="item-detail">Fresh coffee</div>
+      </div>
+      <span class="item-price">$4</span>
+      <button class="order-button" data-id="6016">Order</button>
+    </div>
+    
+    <!-- Breakfast Blend Tea -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Breakfast Blend Tea</div>
+        <div class="item-detail">Freshly brewed Fortnum & Mason Breakfast blend black tea, served with milk and sugar on the side</div>
+      </div>
+      <span class="item-price">$4</span>
+      <button class="order-button" data-id="6017">Order</button>
+    </div>
+    
+    <!-- French Earl Gray Tea -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">French Earl Gray Tea</div>
+        <div class="item-detail">Freshly brewed Fortnum & Mason Earl Gray tea, served with milk and sugar on the side</div>
+      </div>
+      <span class="item-price">$4</span>
+      <button class="order-button" data-id="6018">Order</button>
+    </div>
+  </div>
+  
+    <!-- Camomile Tea -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Camomile Tea</div>
+        <div class="item-detail">Freshly brewed TWG Camomile tea.</div>
+      </div>
+      <span class="item-price">$4</span>
+      <button class="order-button" data-id="6019">Order</button>
+    </div>
+  </div>
+
+  <!-- Alcoholic Beverages -->
+  <div class="menu-category">
+    <h3>Alcoholic Beverages</h3>
+    <!-- Red Wine - Romanée-Conti 1945 -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Red Wine - Romanée-Conti 1945</div>
+        <div class="item-detail">Our selection of premium Red wine, bottle purchase</div>
+      </div>
+      <span class="item-price">$558,000</span>
+      <button class="order-button" data-id="7001">Order</button>
+    </div>
+  
+    <!-- White Wine - 1811 Chateau d'Yquem -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">White Wine - 1811 Chateau d'Yquem</div>
+        <div class="item-detail">Our selection of premium white wine, bottle purchase</div>
+      </div>
+      <span class="item-price">$117,000</span>
+      <button class="order-button" data-id="7002">Order</button>
+    </div>
+  
+    <!-- Beer - The Lost Abbey Cable Car Kriek -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Beer - The Lost Abbey Cable Car Kriek</div>
+        <div class="item-detail">Assorted local and beer, bottle purchase</div>
+      </div>
+      <span class="item-price">$1,395</span>
+      <button class="order-button" data-id="7003">Order</button>
+    </div>
+  
+    <!-- Martini - Tokyo's Diamonds Are Forever Martini -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Martini - Tokyo's Diamonds Are Forever Martini</div>
+        <div class="item-detail">Classic cocktail options, Glass purchase</div>
+      </div>
+      <span class="item-price">$24,000</span>
+      <button class="order-button" data-id="7004">Order</button>
+    </div>
+  
+    <!-- Mojito - Dom Pérignon rosé strawberry -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Mojito - Dom Pérignon rosé strawberry</div>
+        <div class="item-detail">This one-night-only cocktail is served in a three-foot-tall glass cylinder</div>
+      </div>
+      <span class="item-price">$12,899</span>
+      <button class="order-button" data-id="7005">Order</button>
+    </div>
+  
+    <!-- Margarita - The NYC Billionaire Margarita -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Margarita - The NYC Billionaire Margarita</div>
+        <div class="item-detail">Classic cocktail options</div>
+      </div>
+      <span class="item-price">$1,299</span>
+      <button class="order-button" data-id="7006">Order</button>
+    </div>
+  
+    <!-- Limoncello - D'Amalfi Limoncello Supreme -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Limoncello - D'Amalfi Limoncello Supreme</div>
+        <div class="item-detail">Premium Italian Limoncello, Bottle purchase</div>
+      </div>
+      <span class="item-price">$44,000,000</span>
+      <button class="order-button" data-id="7007">Order</button>
+    </div>
+  
+    <!-- Whiskey - Isabella's Islay -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Whiskey - Isabella's Islay</div>
+        <div class="item-detail">Premium whiskey selection, bottle purchase</div>
+      </div>
+      <span class="item-price">$6,200,089</span>
+      <button class="order-button" data-id="7008">Order</button>
+    </div>
+  
+    <!-- Vodka - The Eye of the Dragon -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Vodka - The Eye of the Dragon</div>
+        <div class="item-detail">Premium vodka selection, bottle purchase</div>
+      </div>
+      <span class="item-price">$5,500,844</span>
+      <button class="order-button" data-id="7009">Order</button>
+    </div>
+  
+    <!-- Gin - WATENSHI -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Gin - WATENSHI</div>
+        <div class="item-detail">Premium gin selection, bottle purchase</div>
+      </div>
+      <span class="item-price">$6,899</span>
+      <button class="order-button" data-id="7010">Order</button>
+    </div>
+  
+    <!-- Champagne - Goût de Diamants, Taste of Diamonds 2013 -->
+    <div class="menu-item">
+      <div class="item-text">
+        <div class="item-name">Champagne - Goût de Diamants, Taste of Diamonds 2013</div>
+        <div class="item-detail">Celebrate with our sparkling selection, bottle purchase</div>
+      </div>
+      <span class="item-price">$1,838,899</span>
+      <button class="order-button" data-id="7011">Order</button>
+    </div>
+  </div>
+  
+
+
+    <!-- Add more items similarly -->
+  </main>
+  <div id="cart-message">Item added to cart!</div>
+  <script>
+     // Function to update the time
+  function updateClock() {
+    var now = new Date();
+    var hours = now.getHours() % 12 || 12; // Convert 0 to 12 for 12-hour format
+    var minutes = now.getMinutes();
+    var amPm = now.getHours() >= 12 ? 'PM' : 'AM';
+    var minutesStr = minutes < 10 ? '0' + minutes : minutes;
+    var timeStr = `${hours}:${minutesStr} ${amPm}`;
+    document.getElementById('time').textContent = timeStr;
+  }
+  // Update the time every minute
+  setInterval(updateClock, 60000);
+  updateClock();
+
+  // Add to Cart functionality
+  document.querySelectorAll('.order-button').forEach(button => {
+    button.addEventListener('click', function() {
+      const itemId = this.getAttribute('data-id');
+      let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+      cartItems[itemId] = (cartItems[itemId] || 0) + 1;
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+      // Show cart message
+      const cartMessage = document.getElementById('cart-message');
+      cartMessage.style.display = 'block';
+      setTimeout(() => { cartMessage.style.display = 'none'; }, 3600);
+
+      // Update View Order count
+      updateViewOrderCount();
+    });
+  });
+
+  // Function to update View Order count from localStorage
+  function updateViewOrderCount() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+    const itemCount = Object.keys(cartItems).reduce((count, key) => count + cartItems[key], 0);
+    document.getElementById('view-order-button').textContent = `View Order: ${itemCount}`;
+  }
+
+  // Update View Order count when the page loads
+  document.addEventListener('DOMContentLoaded', updateViewOrderCount);
+  </script>
+</body>
+</html>

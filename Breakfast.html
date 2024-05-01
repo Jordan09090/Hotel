@@ -1,0 +1,364 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Breakfast Menu - Palais Lumière</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: #fff5ee; /* Soft peach background */
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1em 2em;
+      background-color: #E5D9CB;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%; /* Spread out on entire width of header */
+    }
+    #time-room {
+      display: flex;
+      align-items: center;
+    }
+    #time, #room {
+      background-color: #d3d3d3;
+      padding: 0.5em;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    #hotel-logo {
+      max-height: 70px; /* Adjust as needed */
+      width: auto; /* Maintain aspect ratio */
+    }
+    .title-image {
+      max-height: 100px; /* Adjust as needed */
+      width: auto; /* Maintain aspect ratio */
+      margin-top: 0.5em;
+    }
+    .header-button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+      margin-right: 10px; /* Space between buttons */
+    }
+    main {
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .menu-item {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1em;
+      margin: 1em 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 800px; /* Adjust as needed */
+    }
+    .item-image {
+      margin-right: 1em;
+      border-radius: 10px;
+      overflow: hidden; /* Add this to make sure the image follows the border-radius */
+      display: flex; /* Ensures the image centers in the div */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      width: 100px; /* Adjust as needed */
+      height: 100px; /* Adjust as needed */
+    }
+    .item-image img {
+      max-width: 100%; /* Ensures the image does not exceed its container */
+      max-height: 100%; /* Ensures the image does not exceed its container */
+      border-radius: 10px; /* Round the corners of the image */
+    }
+    .item-text {
+      flex-grow: 1;
+    }
+    .item-name {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+    .item-detail {
+      margin-bottom: 1em;
+    }
+    .item-price {
+      font-size: 1.2rem;
+      color: #555;
+      margin-right: 1em;
+    }
+    .order-button {
+      padding: 0.5em 1em;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #d3d3d3;
+    }
+    #cart-message {
+      display: none; /* Hidden by default */
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      background-color: rgb(107, 78, 16);
+      color: white;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div id="time-room">
+        <span id="time">Loading time...</span>
+        <span id="room">Room: 2083</span>
+      </div>
+      <img id="hotel-logo" src="Logo2.PNG" alt="Palais Lumière Logo">
+      <div>
+        <button id="back-button" class="header-button" onclick="location.href='InRoomDiningMenu.html'">Back</button>
+        <button id="view-order-button" class="header-button" onclick="location.href='Cart.html'">View Order</button>
+      </div>
+    </div>
+    <img src="BreakfastTitle.PNG" class="title-image" alt="Breakfast">
+  </header>
+  <main>
+    <!-- Menu items -->
+    <div class="menu-item">
+      <div class="item-image">
+        <!-- Image file source goes here -->
+        <img src="Food Photos/Croissants.PNG" alt="Croissant" />
+      </div>
+      <div class="item-text">
+        <div class="item-name">Croissant</div>
+        <div class="item-detail"> Light, flaky pastries perfect for a morning treat.</div>
+      </div>
+      <span class="item-price">$8</span>
+      <button class="order-button" data-id="1001">Order</button>
+    </div>
+<!-- Continental Breakfast -->
+<!-- Assorted Pastries -->
+<div class="menu-item">
+  <div class="item-image">
+    <img src="Food Photos/Assorted pastries.png" alt="Assorted Pastries" />
+  </div>
+  <div class="item-text">
+    <div class="item-name">Assorted Pastries</div>
+    <div class="item-detail">A selection of buttery pastries with various fillings.</div>
+  </div>
+  <span class="item-price">$10</span>
+  <button class="order-button" data-id="1002">Order</button>
+</div>
+
+<!-- Fresh Fruit Platter -->
+<div class="menu-item">
+  <div class="item-image">
+    <img src="Food Photos/Fresh fruit platte.png" alt="Fresh Fruit Platter" />
+  </div>
+  <div class="item-text">
+    <div class="item-name">Fresh Fruit Platter</div>
+    <div class="item-detail">Seasonal fruits beautifully arranged for a refreshing start.</div>
+  </div>
+  <span class="item-price">$12</span>
+  <button class="order-button" data-id="1003">Order</button>
+</div>
+
+<!-- Yogurt with Granola -->
+<div class="menu-item">
+  <div class="item-image">
+    <img src="Food Photos/Greek yogurt with honey.png" alt="Yogurt with Granola" />
+  </div>
+  <div class="item-text">
+    <div class="item-name">Yogurt with Granola</div>
+    <div class="item-detail">Creamy Greek yogurt served with crunchy granola.</div>
+  </div>
+  <span class="item-price">$8</span>
+  <button class="order-button" data-id="1004">Order</button>
+</div>
+
+<!-- Full Breakfast -->
+<!-- Scrambled Eggs -->
+<div class="menu-item">
+  <div class="item-image">
+    <img src="Food Photos/Scrambled eggs.png" alt="Scrambled Eggs" />
+  </div>
+  <div class="item-text">
+    <div class="item-name">Scrambled Eggs</div>
+    <div class="item-detail">Fluffy scrambled eggs cooked to perfection.</div>
+  </div>
+  <span class="item-price">$10</span>
+  <button class="order-button" data-id="1011">Order</button>
+</div>
+
+<!-- Bacon or Sausage -->
+<div class="menu-item">
+  <div class="item-image">
+    <img src="Food Photos/Bacon or sausage.png" alt="Bacon or Sausage" />
+  </div>
+  <div class="item-text">
+    <div class="item-name">Bacon or Sausage</div>
+    <div class="item-detail">Your choice of crispy bacon or savory sausage.</div>
+  </div>
+  <span class="item-price">$8</span>
+  <button class="order-button" data-id="1012">Order</button>
+</div>
+
+<!-- Hash Browns -->
+<div class="menu-item">
+  <div class="item-image">
+    <img src="Food Photos/Hash browns.png" alt="Hash Browns" />
+  </div>
+  <div class="item-text">
+    <div class="item-name">Hash Browns</div>
+    <div class="item-detail">Crispy and golden-brown hash browns.</div>
+  </div>
+  <span class="item-price">$6</span>
+  <button class="order-button" data-id="1013">Order</button>
+</div>
+
+<!-- Toast or English Muffin -->
+<div class="menu-item">
+  <div class="item-image">
+    <img src="Food Photos/English muffin.png" alt="English muffin" />
+  </div>
+  <div class="item-text">
+    <div class="item-name">English Muffin</div>
+    <div class="item-detail">English muffin with egg and Bacon.</div>
+  </div>
+  <span class="item-price">$4</span>
+  <button class="order-button" data-id="1014">Order</button>
+</div>
+
+
+<!-- Healthy Start -->
+<!-- Avocado Toast -->
+<div class="menu-item">
+  <div class="item-image">
+    <img src="Food Photos/Avocado toast.png" alt="Avocado Toast" />
+  </div>
+  <div class="item-text">
+    <div class="item-name">Avocado Toast</div>
+    <div class="item-detail">Creamy avocado on toasted bread, a healthy and satisfying option.</div>
+  </div>
+  <span class="item-price">$9</span>
+  <button class="order-button" data-id="1021">Order</button>
+</div>
+
+<!-- Poached Eggs -->
+<div class="menu-item">
+  <div class="item-image">
+    <img src="Food Photos/Poached eggs.png" alt="Poached Eggs" />
+  </div>
+  <div class="item-text">
+    <div class="item-name">Poached Eggs</div>
+    <div class="item-detail">Perfectly poached eggs cooked just right, comes with two slices of bread.</div>
+  </div>
+  <span class="item-price">$8</span>
+  <button class="order-button" data-id="1022">Order</button>
+</div>
+
+<!-- Greek Yogurt with Honey -->
+<div class="menu-item">
+  <div class="item-image">
+    <img src="Food Photos/Greek yogurt with honey.png" alt="Greek Yogurt with Honey" />
+  </div>
+  <div class="item-text">
+    <div class="item-name">Greek Yogurt with Honey</div>
+    <div class="item-detail">Thick Greek yogurt drizzled with honey.</div>
+  </div>
+  <span class="item-price">$7</span>
+  <button class="order-button" data-id="1023">Order</button>
+</div>
+
+<!-- Fresh Fruit Smoothie -->
+<div class="menu-item">
+  <div class="item-image">
+    <img src="Food Photos/Fresh fruit smoothie.png" alt="Fresh Fruit Smoothie" />
+  </div>
+  <div class="item-text">
+    <div class="item-name">Fresh Fruit Smoothie</div>
+    <div class="item-detail">A refreshing blend of seasonal fruits.</div>
+  </div>
+  <span class="item-price">$10</span>
+  <button class="order-button" data-id="1024">Order</button>
+</div>
+
+<div class="menu-item">
+  <div class="item-image">
+    <img src="Food Photos/Sourdough bread.png" alt="Sourdough bread" />
+  </div>
+  <div class="item-text">
+    <div class="item-name">Fresh Sourdough bread toasted</div>
+    <div class="item-detail">A Fresh Sourdough bread toasted with butter and vegimite.</div>
+  </div>
+  <span class="item-price">$3</span>
+  <button class="order-button" data-id="8081">Order</button>
+</div>
+
+    
+
+    <!-- Add more items similarly -->
+  </main>
+  <div id="cart-message">Item added to cart!</div>
+  <script>
+    // Function to update the time
+    function updateClock() {
+    var now = new Date();
+    var hours = now.getHours() % 12 || 12; // Convert 0 to 12 for 12-hour format
+    var minutes = now.getMinutes();
+    var amPm = now.getHours() >= 12 ? 'PM' : 'AM';
+    var minutesStr = minutes < 10 ? '0' + minutes : minutes;
+    var timeStr = `${hours}:${minutesStr} ${amPm}`;
+    document.getElementById('time').textContent = timeStr;
+  }
+  // Update the time every minute
+  setInterval(updateClock, 60000);
+  updateClock();
+
+  // Add to Cart functionality
+  document.querySelectorAll('.order-button').forEach(button => {
+    button.addEventListener('click', function() {
+      const itemId = this.getAttribute('data-id');
+      let cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+      cartItems[itemId] = (cartItems[itemId] || 0) + 1;
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+      // Show cart message
+      const cartMessage = document.getElementById('cart-message');
+      cartMessage.style.display = 'block';
+      setTimeout(() => { cartMessage.style.display = 'none'; }, 3600);
+
+      // Update View Order count
+      updateViewOrderCount();
+    });
+  });
+
+  // Function to update View Order count from localStorage
+  function updateViewOrderCount() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || {};
+    const itemCount = Object.keys(cartItems).reduce((count, key) => count + cartItems[key], 0);
+    document.getElementById('view-order-button').textContent = `View Order: ${itemCount}`;
+  }
+
+  // Update View Order count when the page loads
+  document.addEventListener('DOMContentLoaded', updateViewOrderCount);
+  </script>
+</body>
+</html>

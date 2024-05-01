@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Cart - Palais Lumière</title>
+    <link rel="stylesheet" href="Cart.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+          <div id="time-room">
+            <span id="time">Loading time...</span>
+            <span id="room">Room: 2083</span>
+          </div>
+          <img id="hotel-logo" src="Logo2.PNG" alt="Palais Lumière Logo">
+          <div>
+            <button id="back-button" class="header-button">Back</button>
+            <button id="place-order-button" class="header-button">Place Order</button>
+          </div>
+        </div>
+        <img src="CartIcon.PNG" class="title-image" alt="Cart Logo">
+    </header>
+
+    <main id="cart-items-container">
+        <!-- Cart items will be dynamically populated here -->
+    </main>
+
+    <!-- Firebase Scripts Corrected -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+
+    <footer>
+        <div>Total: <span id="total-price">$0.00</span></div>
+    </footer>
+    <script src="Cart.js"></script>
+</body>
+</html>

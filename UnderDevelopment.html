@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Under Development</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .container {
+      max-width: 300px;
+      margin: auto;
+      padding: 20px;
+      border: 4px solid #ff0000;
+      border-radius: 5px;
+    }
+
+    input[type="password"],
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      width: 100%;
+      box-sizing: border-box; /* Fixes padding and width issues */
+    }
+
+    #countdown {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Under Development</h2>
+  <p id="countdown">Redirecting in 5 seconds...</p>
+  <button onclick="stayOnPage()">Stay on this page</button>
+  <button onclick="backToHome()">Back</button>
+  <input type="password" id="adminPassword" placeholder="ADMIN password">
+  <button onclick="checkPassword()">Enter</button>
+</div>
+
+<script>
+  var countdownNumber = 5;
+  var countdownTimer = setInterval(function() {
+    countdownNumber--;
+    document.getElementById('countdown').textContent = 'Redirecting in ' + countdownNumber + ' seconds...';
+    if(countdownNumber <= 0) {
+      clearInterval(countdownTimer);
+      window.location.href = 'Homepage.html'; // Replace with your homepage
+    }
+  }, 1000);
+
+  function stayOnPage() {
+    clearInterval(countdownTimer);
+    document.getElementById('countdown').textContent = 'You have chosen to stay on this page.';
+  }
+
+  function backToHome() {
+    window.location.href = 'Homepage.html'; // Replace with your homepage
+  }
+
+  function checkPassword() {
+    var password = document.getElementById('adminPassword').value;
+    if(password === 'Jordan124') {
+      window.location.href = 'Breakfast.html'; // Replace with your target page
+    } else {
+      alert('Incorrect password.');
+    }
+  }
+</script>
+
+</body>
+</html>

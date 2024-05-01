@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000; /* Assuming a black background is preferred */
+      overflow: hidden; /* Prevent scrolling */
+    }
+    video {
+      position: fixed; /* Use fixed positioning */
+      right: 0;
+      bottom: 0;
+      min-width: 100%; /* Minimum of 100% browser width */
+      min-height: 100%; /* Minimum of 100% browser height */
+      width: auto; /* Auto-adjust the width */
+      height: auto; /* Auto-adjust the height */
+      background-size: cover;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+<video id="introVideo" preload="auto" autoplay muted onended="videoEnded()">
+  <source src="Introvideo.mp4" type="video/mp4">
+
+  Your browser does not support the video tag.
+</video>
+
+<script>
+  const video = document.getElementById('introVideo');
+
+  video.addEventListener('error', () => {
+    console.error('Error loading or playing video.');
+  });
+
+  function videoEnded() {
+    window.location.href = "Homepage.html";
+  }
+
+  // Attempt to autoplay video
+  video.play().catch(() => {
+    // Autoplay was prevented, show a message or handle it
+    console.log('Autoplay was prevented');
+  });
+</script>
+
+</body>
+</html>
